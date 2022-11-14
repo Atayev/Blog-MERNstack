@@ -1,6 +1,7 @@
 import express from "express";
 import mongodb from "mongoose";
 import multer from "multer";
+import cors from 'cors'
 import {
   postCreateValidation,
   signinValidation,
@@ -34,7 +35,10 @@ mongodb
   .catch((err) => console.log("DB error", err));
 
 app.use(express.json());
+app.use(cors())
 app.use("/upload", express.static("uploads"));
+
+
 
 app.get("/", (req, res) => {
   res.send("Hello World");
