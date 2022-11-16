@@ -1,7 +1,7 @@
 import React from "react";
 
-import styles from "./AddComment.module.scss";
-import Box from '@mui/material/Box'
+import styles from "./Addcomment.module.scss";
+import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";

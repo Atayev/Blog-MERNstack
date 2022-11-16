@@ -50,6 +50,7 @@ app.post("/upload", authMiddleware, upload.single("image"), (req, res) => {
   });
 });
 
+app.get("/tags", postController.getLastTags);
 app.get("/posts", postController.getAll);
 app.get("/posts/:id", postController.getOne);
 app.post(
