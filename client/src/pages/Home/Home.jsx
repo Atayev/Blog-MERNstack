@@ -1,24 +1,21 @@
 import React, { useEffect } from "react";
-import {useDispatch,useSelector} from 'react-redux'
+import { useDispatch, useSelector } from "react-redux";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Grid from "@mui/material/Grid";
 import Post from "../../components/Post/Post";
 import { TagsBlock } from "../../components/SideBlock/TagsBlock";
 import { CommentsBlock } from "../../components/CommentsBlock";
-import { fetchPosts,fetchTags } from "../../components/redux/slices/posts";
+import { fetchPosts, fetchTags } from "../../components/redux/slices/posts";
 function Home() {
-  const dispatch = useDispatch()
-  const { posts, tags } = useSelector(state => state.posts)
-  const isPostsLoading = posts.status ==='loading'
-  const isTagsLoading = tags.status ==='loading'
+  const dispatch = useDispatch();
+  const { posts, tags } = useSelector((state) => state.posts);
+  const isPostsLoading = posts.status === "loading";
+  const isTagsLoading = tags.status === "loading";
   useEffect(() => {
-    dispatch(fetchPosts())
-    dispatch(fetchTags())
-  }, [])
-  console.log(posts)
-
-
+    dispatch(fetchPosts());
+    dispatch(fetchTags());
+  }, []);
   return (
     <>
       <Tabs style={{ marginBottom: 15 }} value={0} aria-label="basic tabs">
@@ -28,13 +25,11 @@ function Home() {
 
       <Grid container spacing={4}>
         <Grid xs={8} item>
-          {(isPostsLoading ? [...Array(5)] : posts?.items).map((obj, index) => isPostsLoading ?
-            <Post
-              key={index}
-              isLoading
-            /> : (
-            (
-              <Post
+          {(isPostsLoading ? [...Array(5)] : posts?.items).map((obj, index) =>
+            isPostsLoading ? (
+              <Post key={index} isLoading />
+            ) : (
+              <Post key={index}
                 _id={obj._id}
                 title={obj.title}
                 imageUrl="https://res.cloudinary.com/practicaldev/image/fetch/s--UnAfrEG8--/c_imagga_scale,f_auto,fl_progressive,h_420,q_auto,w_1000/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/icohm5g0axh9wjmu4oc3.png"
@@ -46,13 +41,10 @@ function Home() {
                 isEditable
               />
             )
-          ))}
+          )}
         </Grid>
         <Grid xs={4} item>
-          <TagsBlock
-            items={tags.items}
-            isLoading={isTagsLoading}
-          />
+          <TagsBlock items={tags.items} isLoading={isTagsLoading} />
           <CommentsBlock
             items={[
               {

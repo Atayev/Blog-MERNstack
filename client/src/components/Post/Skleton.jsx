@@ -21,11 +21,11 @@ export const PostSkleton = () => {
                       </Box>
                   </Box>
                   <Box className={styles.skletonInfo}>
-                      <Skeleton variant='text' width='80%' height={45}  v/>
+                      <Skeleton variant='text' width='80%' height={45}  />
                       <Box>
-                      <Skeleton variant='text' width={40} height={45}  v/>
-                      <Skeleton variant='text' width={40} height={45}  v/>
-                      <Skeleton variant='text' width={40} height={45}  v/>
+                      <Skeleton variant='text' width={40} height={45}  />
+                      <Skeleton variant='text' width={40} height={45}  />
+                      <Skeleton variant='text' width={40} height={45}  />
                       </Box>
                   </Box>
         </Box>
