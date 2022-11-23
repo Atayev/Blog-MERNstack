@@ -22,6 +22,7 @@ function Post({
   isFullPost,
   isLoading,
   isEditable,
+  
 }) {
 
     if (isLoading) {
@@ -38,9 +39,11 @@ function Post({
               <EditIcon />
             </IconButton>
           </Link>
+          <Link to={`/posts/${_id}/delete`}>
           <IconButton color="secondary" onClick={handleRemove}>
             <DeleteIcon />
           </IconButton>
+          </Link>
         </Box>
       )}
       {imageUrl && (

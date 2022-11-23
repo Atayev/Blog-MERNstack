@@ -28,9 +28,11 @@ function Navbar() {
           <Box className={styles.buttons}>
             {isAuth ? (
               <>
-                <Link href="/posts/create">
-                  <Button variant="contained">Add Post</Button>
-                </Link>
+                  <Button
+                  variant="contained"
+                  onClick={()=>navigate('/add-post')}
+                >Add Post
+                </Button>
                 <Button
                   onClick={handleLogout}
                   variant="contained"
